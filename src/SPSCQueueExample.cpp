@@ -8,6 +8,10 @@ int main(int argc, char *argv[]) {
   using namespace rigtorp;
 
   SPSCQueue<int> q(1);
+
+  std::cout << "sizeof(SPSCQueue) = " << sizeof(SPSCQueue<int>) << "\n";   // ¡Ý 64 + padding
+
+
   auto t = std::thread([&] {
     while (!q.front())
       ;
